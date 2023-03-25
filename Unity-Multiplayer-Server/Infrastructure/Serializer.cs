@@ -19,7 +19,6 @@ namespace UnityServer
             }
                 
             return "ERROR";
-
         }
 
         static public string get_action(string query)
@@ -34,7 +33,6 @@ namespace UnityServer
         {
             string[] words = query.Split("\n");
             words = words[1..];
-
 
             IDictionary<string, string> result = new Dictionary<string, string>();
 

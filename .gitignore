@@ -13,6 +13,7 @@
 *.user
 *.userosscache
 *.sln.docstates
+*.unity
 
 /Unity-Multiplayer-Client/[Ll]ibrary/
 /Unity-Multiplayer-Client/[Tt]emp/

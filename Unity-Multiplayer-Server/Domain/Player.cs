@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Net;
-using System.Net.Sockets;
-using System.Text;
-using System.Configuration;
-using System.Reflection;
-using System.Runtime.ConstrainedExecution;
+
 
 namespace UnityServer
 {
@@ -17,6 +12,12 @@ namespace UnityServer
         {
             this.username = username;
             this.password = password;
+            info_in_terminat();
+        }
+
+        public void info_in_terminat()
+        {
+            Console.WriteLine($"The user: <{this.username}> has just connected!");
         }
     }
 }

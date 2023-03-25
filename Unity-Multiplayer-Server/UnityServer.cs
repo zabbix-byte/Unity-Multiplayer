@@ -31,8 +31,6 @@ namespace UnityServer
 
                     SocketLogin new_login = new SocketLogin(credentials["username"], credentials["password"]);
 
-                    Console.WriteLine(credentials["username"]);
-                    Console.WriteLine(credentials["password"]);
                 }
             }
 
