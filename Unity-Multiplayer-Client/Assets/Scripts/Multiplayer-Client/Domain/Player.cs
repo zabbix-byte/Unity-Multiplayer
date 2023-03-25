@@ -11,6 +11,7 @@ namespace UnityMultiplayerClient
         public string username;
         public string password;
         private bool auth = false;
+        PlayerAuth player_auth = new PlayerAuth();
 
         private void set_auth(bool status)
         {
@@ -20,8 +21,15 @@ namespace UnityMultiplayerClient
 
         void Start()
         {
-            PlayerAuth player_auth = new PlayerAuth();
             auth = player_auth.login(this.username, this.password);
+        }
+
+        void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+            Debug.Log(player_auth.get_my_name());
+            }
         }
 
     }

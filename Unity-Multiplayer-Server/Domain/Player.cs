@@ -1,23 +1,21 @@
 ﻿using System;
-
+using System.Security.Policy;
 
 namespace UnityServer
 {
-    internal class Player
+    internal class Player  
     {
-        private string username;
-        private string password;
+        public string username;
+        public string password;
 
-        public Player(string username, string password)
-        {
-            this.username = username;
-            this.password = password;
-            info_in_terminat();
-        }
-
-        public void info_in_terminat()
+        public void info_in_terminal()
         {
             Console.WriteLine($"The user: <{this.username}> has just connected!");
+        }
+
+        public string get_my_name()
+        {
+            return this.username;
         }
     }
 }

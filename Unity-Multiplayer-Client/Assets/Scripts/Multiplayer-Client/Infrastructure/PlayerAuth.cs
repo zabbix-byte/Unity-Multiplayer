@@ -29,5 +29,12 @@ namespace UnityMultiplayerClient
             return false;
         }
 
+        public string get_my_name()
+        {
+
+            GetData my_name = new GetData("get_my_name");
+            return my_name.get_data();
+        }
+
     }
 }

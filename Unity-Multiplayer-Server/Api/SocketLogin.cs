@@ -3,17 +3,8 @@
 
 namespace UnityServer
 {
-    internal class SocketLogin
+    internal class SocketLogin : Login
     {
-        public bool is_auth = false;
-
-        public SocketLogin(string username, string password)
-        {
-            if (username == "admin" && password == "123")
-            {
-                Player current_palyer = new Player(username, password);
-                is_auth = true;
-            }
-        }
+        public SocketLogin(string username, string password): base(username, password) {}
     }
 }

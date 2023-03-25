@@ -15,6 +15,7 @@ namespace UnityServer
         {
 
             byte[] data = new byte[1024];
+            SocketLogin new_login = new SocketLogin("", "");
             IPEndPoint ipep = new IPEndPoint(IPAddress.Any, PORT);
             UdpClient newsock = new UdpClient(ipep);
             Console.WriteLine("Running Server on port "+ PORT+ ", waiting for clients..");
@@ -22,6 +23,7 @@ namespace UnityServer
 
             while (true)
             {
+
                 data = newsock.Receive(ref sender);
                 string current_petition = Encoding.ASCII.GetString(data, 0, data.Length);
 
@@ -29,7 +31,17 @@ namespace UnityServer
                 {
                     IDictionary<string, string> credentials =  Serializer.get_body(current_petition);
 
-                    SocketLogin new_login = new SocketLogin(credentials["username"], credentials["password"]);
+                    new_login = new SocketLogin(credentials["username"], credentials["password"]);
+                    
+                }
+                if (new_login.is_auth)
+                {
+                    if (Serializer.get_method(current_petition) == "GET" && Serializer.get_action(current_petition) == "/get_my_name")
+                    {
+                        Console.Write(new_login.get_my_name());
+                        data = Encoding.ASCII.GetBytes(new_login.get_my_name());
+                        newsock.Send(data, data.Length, sender);
+                    }
 
                 }
             }
