@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Net;
-using System.Net.Sockets;
-using System.Text;
-using System.Configuration;
-using System.Reflection;
-using System.Runtime.ConstrainedExecution;
+
 
 namespace UnityServer
 {
@@ -12,18 +7,44 @@ namespace UnityServer
     {
         static public string get_method(string query)
         {
-            Console.WriteLine(query.Split(" "));
-            return "";
+            string[] words = query.Split(" ");
+
+            if (words[0] == "POST")
+            {
+                return words[0];
+            }
+            else if (words[0] == "GET")
+            {
+                return "GET";
+            }
+                
+            return "ERROR";
+
         }
 
-        static public string get_atributes(string query)
+        static public string get_action(string query)
         {
-            return "";
+            string[] words = query.Split("\n");
+            string[] result = words[0].Split(" ");
+
+            return result[1];
         }
 
-        static public string get_body(string query)
+        static public IDictionary<string, string> get_body(string query)
         {
-            return "";
+            string[] words = query.Split("\n");
+            words = words[1..];
+
+
+            IDictionary<string, string> result = new Dictionary<string, string>();
+
+            foreach (var word in words)
+            {
+                string[] current = word.Split(':');
+                result.Add(current[0], current[1]);
+            }
+
+            return result;
         }
     }
 }

@@ -25,9 +25,14 @@ namespace UnityServer
                 data = newsock.Receive(ref sender);
                 string current_petition = Encoding.ASCII.GetString(data, 0, data.Length);
 
-                if (Serializer.get_method(current_petition) == "login")
+                if (Serializer.get_method(current_petition) == "POST" && Serializer.get_action(current_petition) == "/login")
                 {
-      
+                    IDictionary<string, string> credentials =  Serializer.get_body(current_petition);
+
+                    SocketLogin new_login = new SocketLogin(credentials["username"], credentials["password"]);
+
+                    Console.WriteLine(credentials["username"]);
+                    Console.WriteLine(credentials["password"]);
                 }
             }
 
