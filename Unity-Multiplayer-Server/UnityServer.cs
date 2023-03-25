@@ -3,17 +3,12 @@ using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using System.Configuration;
-using System.Collections.Specialized;
 
 namespace UnityServer
 {
-
-    
     internal class Server
     {
-
-        public static int PORT = Int32.Parse(ConfigurationManager.AppSettings.Get("Key0") ?? "5000");
-
+        public static int PORT = Int32.Parse(ConfigurationManager.AppSettings.Get("PORT") ?? "5000");
 
         static void Main(string[] args)
         {

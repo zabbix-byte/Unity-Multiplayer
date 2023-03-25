@@ -14,6 +14,15 @@
 *.userosscache
 *.sln.docstates
 
+/Unity-Multiplayer-Client/[Ll]ibrary/
+/Unity-Multiplayer-Client/[Tt]emp/
+/Unity-Multiplayer-Client/[Oo]bj/
+/Unity-Multiplayer-Client/[Bb]uild/
+/Unity-Multiplayer-Client/[Bb]uilds/
+/Unity-Multiplayer-Client/[Ll]ogs/
+/Unity-Multiplayer-Client/[Uu]ser[Ss]ettings/
+/Unity-Multiplayer-Client/ProjectSettings/
+
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 
