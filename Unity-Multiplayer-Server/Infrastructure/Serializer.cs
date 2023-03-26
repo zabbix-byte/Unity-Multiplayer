@@ -5,7 +5,7 @@ namespace UnityServer
 {
     internal class Serializer
     {
-        static public string get_method(string query)
+        static public string GetMethod(string query)
         {
             string[] words = query.Split(" ");
 
@@ -21,7 +21,7 @@ namespace UnityServer
             return "ERROR";
         }
 
-        static public string get_action(string query)
+        static public string GetAction(string query)
         {
             string[] words = query.Split("\n");
             string[] result = words[0].Split(" ");
@@ -29,7 +29,7 @@ namespace UnityServer
             return result[1];
         }
 
-        static public IDictionary<string, string> get_body(string query)
+        static public IDictionary<string, string> GetBody(string query)
         {
             string[] words = query.Split("\n");
             words = words[1..];

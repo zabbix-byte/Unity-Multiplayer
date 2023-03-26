@@ -9,7 +9,7 @@ namespace UnityMultiplayerClient
 
         public PlayerAuth() {}
 
-        public bool login(string username, string password)
+        public string login(string username, string password)
         {
             /*
             POST /login
@@ -18,15 +18,9 @@ namespace UnityMultiplayerClient
             */
 
             string body = "username:" + username + "\n" + "password:" + password;
-
             SendData new_send_data = new SendData("login", body);
 
-            if (new_send_data.send_data() == "Authorized")
-            {
-                return true;
-            }
-
-            return false;
+            return new_send_data.send_data();
         }
 
         public string get_my_name()

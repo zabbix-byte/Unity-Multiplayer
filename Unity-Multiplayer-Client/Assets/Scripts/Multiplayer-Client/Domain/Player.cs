@@ -10,18 +10,13 @@ namespace UnityMultiplayerClient
 
         public string username;
         public string password;
-        private bool auth = false;
+        private string token;
         PlayerAuth player_auth = new PlayerAuth();
-
-        private void set_auth(bool status)
-        {
-            this.auth = status;
-        }
-
 
         void Start()
         {
-            auth = player_auth.login(this.username, this.password);
+            this.token = player_auth.login(this.username, this.password);
+            Debug.Log(this.token);
         }
 
         void Update()

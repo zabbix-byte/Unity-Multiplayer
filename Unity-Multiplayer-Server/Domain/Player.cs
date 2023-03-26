@@ -6,14 +6,13 @@ namespace UnityServer
     internal class Player  
     {
         public string username;
-        public string password;
 
-        public void info_in_terminal()
+        public Player(string username)
         {
-            Console.WriteLine($"The user: <{this.username}> has just connected!");
+            this.username = username;
         }
 
-        public string get_my_name()
+        public string GetMyName()
         {
             return this.username;
         }

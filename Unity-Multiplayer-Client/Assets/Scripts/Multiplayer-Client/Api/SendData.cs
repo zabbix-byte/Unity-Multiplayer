@@ -29,10 +29,10 @@ namespace UnityMultiplayerClient
             IPEndPoint sender = new IPEndPoint(IPAddress.Any, 0);
             EndPoint Remote = (EndPoint)sender;
 
-            //data = new byte[1024];
-            //int recv = MultiplayerClient.get_server().ReceiveFrom(data, ref Remote);
+            data = new byte[1024];
+            int recv = MultiplayerClient.get_server().ReceiveFrom(data, ref Remote);
 
-            return ""; //Encoding.ASCII.GetString(data, 0, recv);
+            return Encoding.ASCII.GetString(data, 0, recv);
         }
     }
 }
